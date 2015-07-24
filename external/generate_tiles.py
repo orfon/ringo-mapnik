@@ -60,7 +60,7 @@ class RenderThread:
         self.printLock = printLock
         # Load style XML
         mapnik.load_map(self.m, mapfile, True)
-        print self.m.layers[0].envelope()
+        # print self.m.layers[0].envelope()
         # Obtain <Map> projection
         self.prj = mapnik.Projection(self.m.srs)
         # Projects between tile pixel co-ordinates and LatLong (EPSG:4326)
@@ -211,5 +211,10 @@ if __name__ == "__main__":
 
     if not tile_dir.endswith('/'):
         tile_dir = tile_dir + '/'
+
+    print "Rendering " + mapfile + " into " + tile_dir
+    print "utfgrid? " + utf_grid
+    print "minZoom " + str(minZoom)
+    print "maxZoom " + str(maxZoom)
 
     render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom , "")
