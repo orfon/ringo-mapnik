@@ -25,5 +25,5 @@
     "engines": {
         "ringojs": ">= 0.11"
     },
-    "main": "./lib/map"
+    "main": "./lib/main"
 }
