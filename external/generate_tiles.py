@@ -212,9 +212,9 @@ if __name__ == "__main__":
     if not tile_dir.endswith('/'):
         tile_dir = tile_dir + '/'
 
-    print "Rendering " + mapfile + " into " + tile_dir
-    print "utfgrid? " + utf_grid
-    print "minZoom " + str(minZoom)
-    print "maxZoom " + str(maxZoom)
+    #print "Rendering " + mapfile + " into " + tile_dir
+    #print "utfgrid? " + utf_grid
+    #print "minZoom " + str(minZoom)
+    #print "maxZoom " + str(maxZoom)
 
     render_tiles(bbox, mapfile, tile_dir, minZoom, maxZoom , "")
