@@ -50,8 +50,6 @@ class GoogleProjection:
          h = RAD_TO_DEG * ( 2 * atan(exp(g)) - 0.5 * pi)
          return (f,h)
 
-
-
 class RenderThread:
     def __init__(self, tile_dir, mapfile, q, printLock, maxZoom):
         self.tile_dir = tile_dir
@@ -97,7 +95,7 @@ class RenderThread:
         mapnik.render(self.m, im)
         im.save(tile_uri, 'png256')
 
-        if utf_grid:
+        if utf_grid == "true":
             grid = mapnik.Grid(self.m.width,self.m.height)
             mapnik.render_layer(self.m, grid, layer=0, fields=['html_exp'])
 
