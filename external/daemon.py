@@ -12,5 +12,3 @@ while 1:
     imgString = renderer.render_tile(env.get('x'), env.get('y'), env.get('z'))
     sys.stdout.write(imgString);
     sys.stdout.flush()
-
-
