@@ -11,7 +11,11 @@ while 1:
     env = json.loads(line)
     renderer = ImageProvider(str(env.get('mapnikXml')))
     imgString = renderer.render_tile(env.get('x'), env.get('y'), env.get('z'))
-    imgStringLen = len(imgString)
+    imgStringByteArray = bytearray(imgString)
+    imgStringLen = len(imgStringByteArray)
+    sys.stderr.write('len: ' + str(imgStringLen) + '\n')
+    sys.stderr.flush()
+
     sys.stdout.write(struct.pack('!i', imgStringLen))
-    sys.stdout.write(struct.pack( '!'+str(imgStringLen)+'s', imgString))
+    sys.stdout.write(imgStringByteArray);
     sys.stdout.flush()
