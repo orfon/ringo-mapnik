@@ -4,6 +4,7 @@ import os
 import sys
 from math import pi,cos,sin,log,exp,atan
 from base64 import b64encode
+import json
 
 DEG_TO_RAD = pi/180
 RAD_TO_DEG = 180/pi
@@ -47,7 +48,7 @@ class ImageProvider:
         # Projects between tile pixel co-ordinates and LatLong (EPSG:4326)
         self.tileproj = GoogleProjection(19)
 
-    def render_tile(self, x, y, z):
+    def render_tile(self, x, y, z, utf_grid):
 
         # Calculate pixel positions of bottom-left & top-right
         p0 = (x * 256, (y + 1) * 256)
@@ -72,19 +73,12 @@ class ImageProvider:
         if(self.m.buffer_size < 128):
             self.m.buffer_size = 128
 
-        # Render image with default Agg renderer
-        im = mapnik.Image(render_size, render_size)
-        mapnik.render(self.m, im)
-        return im.tostring('png');
-        #return b64encode(im.tostring('png'))
-
-if __name__ == "__main__":
-
-    mapfile = os.environ['MAPNIK_MAP_FILE']
-    x = int(os.environ['MAPNIK_X'])
-    y = int(os.environ['MAPNIK_Y'])
-    z = int(os.environ['MAPNIK_Z'])
-
-    renderer = ImageProvider(mapfile);
-    imgString = renderer.render_tile(x, y, z);
-    sys.stdout.write(imgString);
+        if utf_grid is True:
+            grid = mapnik.Grid(self.m.width,self.m.height)
+            mapnik.render_layer(self.m, grid, layer=0, fields=['html_exp'])
+            utfgrid = grid.encode('utf', resolution=4)
+            return json.dumps(utfgrid);
+        else:
+            im = mapnik.Image(render_size, render_size)
+            mapnik.render(self.m, im)
+            return im.tostring('png');

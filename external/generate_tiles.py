@@ -90,11 +90,6 @@ class RenderThread:
         if(self.m.buffer_size < 128):
             self.m.buffer_size = 128
 
-        # Render image with default Agg renderer
-        im = mapnik.Image(render_size, render_size)
-        mapnik.render(self.m, im)
-        im.save(tile_uri, 'png256')
-
         if utf_grid == "true":
             grid = mapnik.Grid(self.m.width,self.m.height)
             mapnik.render_layer(self.m, grid, layer=0, fields=['html_exp'])
@@ -103,6 +98,11 @@ class RenderThread:
             utfgrid = grid.encode('utf', resolution=4)
             with open(tilefilename, 'w') as file:
                 file.write(json.dumps(utfgrid))
+        else:
+            # Render image with default Agg renderer
+            im = mapnik.Image(render_size, render_size)
+            mapnik.render(self.m, im)
+            im.save(tile_uri, 'png256')
 
 
 

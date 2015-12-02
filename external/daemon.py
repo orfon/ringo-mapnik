@@ -11,7 +11,7 @@ while 1:
     try:
         env = json.loads(line)
         renderer = ImageProvider(str(env.get('mapnikXml')))
-        imgString = renderer.render_tile(env.get('x'), env.get('y'), env.get('z'))
+        imgString = renderer.render_tile(env.get('x'), env.get('y'), env.get('z'), env.get('utfGrid'))
         imgStringByteArray = bytearray(imgString)
         imgStringLen = len(imgStringByteArray)
         # for debugging
