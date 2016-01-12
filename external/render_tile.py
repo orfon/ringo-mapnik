@@ -82,3 +82,15 @@ class ImageProvider:
             im = mapnik.Image(render_size, render_size)
             mapnik.render(self.m, im)
             return im.tostring('png');
+
+    def render_bounding(self, bounds):
+        c0 = self.prj.forward(mapnik.Coord(bounds[0], bounds[1]))
+        c1 = self.prj.forward(mapnik.Coord(bounds[2], bounds[3]))
+        bbox = mapnik.Box2d(c0.x, c0.y, c1.x, c1.y)
+        self.m.resize(800, 450)
+        self.m.zoom_to_box(bbox)
+        if (self.m.buffer_size < 128):
+            self.m.buffer_size = 128
+        im = mapnik.Image(800, 450)
+        mapnik.render(self.m, im)
+        return im
