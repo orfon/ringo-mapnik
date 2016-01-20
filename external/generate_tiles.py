@@ -117,10 +117,10 @@ class RenderThread:
                 (name, tile_uri, x, y, z) = r
 
             self.render_tile(tile_uri, x, y, z)
-            bytes=os.stat(tile_uri)[6]
-            empty= ''
-            if bytes == 103:
-                empty = " Empty Tile "
+            #bytes=os.stat(tile_uri)[6]
+            #empty= ''
+            #if bytes == 103:
+                #empty = " Empty Tile "
             #self.printLock.acquire()
             #print name, ":", z, x, y, empty
             #self.printLock.release()
