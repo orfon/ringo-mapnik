@@ -6,7 +6,7 @@ var viennaXmlPath = module.resolve('./fixtures/austrians-vienna.xml');
 var testOutputPng = module.resolve('./fixtures/test-output.png');
 
 exports.setUp = function() {
-   var xml = fs.read(viennaXmlPath);
+   var xml = fs.read(viennaXmlPath + '.template');
    xml = xml.replace('%%BASE_PATH%%', module.resolve('./fixtures/'));
    fs.write(viennaXmlPath, xml);
 }
@@ -16,6 +16,11 @@ exports.tearDown = function() {
       fs.remove(testOutputPng);
    } catch (e) {
       // test might have failed earlier
+   }
+   try {
+      fs.remove(viennaXmlPath);
+   } catch (e) {
+      // test might have failed
    }
 }
 
