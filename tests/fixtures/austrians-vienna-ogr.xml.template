@@ -4,7 +4,7 @@
       <StyleName>3c94cbc9-aceb-4290-9999-9d6320f6ad40</StyleName>
       <Datasource>
          <Parameter name="type">ogr</Parameter>
-         <Parameter name="base"><![CDATA[/home/simon/geo/ringo-mapnik/tests/fixtures]]></Parameter>
+         <Parameter name="base"><![CDATA[%%BASE_PATH%%]]></Parameter>
          <Parameter name="file"><![CDATA[austrians-vienna.shp]]></Parameter>
          <Parameter name="layer_by_index"><![CDATA[0]]></Parameter>
       </Datasource>

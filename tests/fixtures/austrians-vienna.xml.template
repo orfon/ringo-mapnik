@@ -4,7 +4,7 @@
       <StyleName>3c94cbc9-aceb-4290-9999-9d6320f6ad40</StyleName>
       <Datasource>
          <Parameter name="type">geojson</Parameter>
-         <Parameter name="base"><![CDATA[/home/simon/geo/ringo-mapnik/tests/fixtures]]></Parameter>
+         <Parameter name="base"><![CDATA[%%BASE_PATH%%]]></Parameter>
          <Parameter name="file"><![CDATA[austrians-vienna.geojson]]></Parameter>
       </Datasource>
    </Layer>
