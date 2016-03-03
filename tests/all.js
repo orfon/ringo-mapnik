@@ -43,6 +43,7 @@ exports.tearDown = function() {
 
     tryRemove(fs.join(layerBasePath, 'style.xml'));
     tryRemove(fs.join(layerBasePath, 'data.geojson'));
+    tryRemove(fs.join(layerBasePath, 'data.geojson'));
 
     var map = factory.get('simple-map');
     var zoomPath15 = map.layers[0].tilesPath + '/15';
