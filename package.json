@@ -1,9 +1,9 @@
 {
     "name": "ringo-mapnik",
-    "version": "0.1",
-    "description": "render geojson with SLD styles in ringo",
-    "keywords": ["mapnik", "sld", "geojson", "geo"],
-    "homepage": "https://github.com/orfon/sld2mapnik/",
+    "version": "0.2",
+    "description": "rendering webmaps with mapnik",
+    "keywords": ["mapnik", "cartocss", "webmap", "sld", "geojson", "gis"],
+    "homepage": "https://github.com/orfon/ringo-mapnik/",
     "author": {
         "name": "Simon Oberhammer",
         "email": "simon@nekapuzer.at",
@@ -19,9 +19,6 @@
         "type": "Apache License Version 2.0",
         "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
     }],
-    "dependencies": {
-        "sld2mapink": ">0.1"
-    },
     "engines": {
         "ringojs": ">= 0.11"
     },

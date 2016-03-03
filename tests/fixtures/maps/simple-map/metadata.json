@@ -1,0 +1,31 @@
+{
+    "layers": [
+        {
+            "opacity": 1,
+            "title": "data",
+            "id": "43df6ff1-b96a-434d-b0ad-8272417d87ef"
+        }
+    ],
+    "popup": {
+        "template": "",
+        "layerIndex": 1
+    },
+    "controls": {
+        "zoom": true,
+        "layer": "xor",
+        "minZoom": 15,
+        "maxZoom": 16,
+        "bounds": [
+            16.250677238620025,
+            48.17967787961118,
+            16.27514507738375,
+            48.20148800485401
+        ],
+        "forceBounds": false
+    },
+    "texts": {
+        "attribution": "",
+        "description": ""
+    },
+    "backend": {}
+}
